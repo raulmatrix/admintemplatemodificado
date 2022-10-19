@@ -2,13 +2,13 @@
     $nombreservidor = "localhost";
     $usuariobd = "root";
     $passw = "";
-    $dbnombre = "tuercasbd";
+    $dbnombre = "bdtaller";
 
-    $respuestaconsulta;
+    /*$respuestaconsulta;
     $conex;
     $resultado;
-
-    function conectarbd(){
+*/
+    function conectarservidor(){
     global $nombreservidor,$usuariobd,$passw,$dbnombre;
     $conex = mysqli_connect($nombreservidor,$usuariobd,$passw,$dbnombre);
 
@@ -19,6 +19,11 @@
             echo "Conexion Exitosa";
         }
     }
+    /*
+    function conectarbd(){
+        global $conex, $dbnombre,$db;
+        $db = mysqli_select_db($conex,$dbnombre);
+    }*/
 
     function consulta($sql){
        global $conex,$resultado;
@@ -31,10 +36,12 @@
         }
     }
 
+    
     function numfilas(){
         global $resultado;
         return mysqli_num_rows($resultado);
     }
+    
 
 
 ?>

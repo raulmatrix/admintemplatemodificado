@@ -48,7 +48,7 @@ function ingresar(){
 
       <form action="proyecto/validacionloguin.php" method="get">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario">
+          <input type="text" onchange="buscarCliente();" class="form-control" name="usuario" id="usuario" placeholder="Usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>

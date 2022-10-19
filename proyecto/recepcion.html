@@ -12,6 +12,28 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <link rel="stylesheet" href="estilos/recepcion.css">
+
+  <script>
+    function actualizarModelo(){
+      
+      $(document).ready(function()
+      {
+          var selectmarca = $('#marca').val();
+          //alert("Ingreso");
+          //alert(selectmarca);
+        
+          $.get("actualizarcombos.php", {marca: selectmarca}, function(result){   
+            $("#actualizarmodelos").html(result);
+            //$('#actualizarmodelos').show();
+          });
+      });
+    }
+  
+
+
+  
+  </script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -334,22 +356,23 @@
                     </div>
 
                     <div class="row">
+                      
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="marca">Marca:</label>
                               
-                              <select class="form-control" name="marca" id="marca">
+                              <select class="form-control" name="marca" id="marca" onchange="actualizarModelo();">
                                 <option value="">-Elegir Marca-</option>
-                                <option value="">Toyota</option>
-                                <option value="">Suzuki</option>
-                                <option value="">Mazda</option>
-                                <option value="">Wolskvagen</option>
-                                <option value="">Changan</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="suzuki">Suzuki</option>
+                                <option value="mazda">Mazda</option>
+                                <option value="wolskvagen">Wolskvagen</option>
+                                <option value="changan">Changan</option>
                               </select>
                             </div>
                         
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3" id="actualizarmodelos">
                             <div class="form-group">
                                 <label for="marca">Modelo:</label>
                               
