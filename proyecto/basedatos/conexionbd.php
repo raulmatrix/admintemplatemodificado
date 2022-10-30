@@ -1,47 +1,22 @@
 <?php
-    $nombreservidor = "localhost";
+/*datos para enlazar con mysql bd*/
+    $servidor = "localhost";
     $usuariobd = "root";
-    $passw = "";
-    $dbnombre = "bdtaller";
+    $password = "";
+    $db = "bdtaller";
 
-    /*$respuestaconsulta;
-    $conex;
-    $resultado;
-*/
-    function conectarservidor(){
-    global $nombreservidor,$usuariobd,$passw,$dbnombre;
-    $conex = mysqli_connect($nombreservidor,$usuariobd,$passw,$dbnombre);
+    $conex = mysqli_connect($servidor,$usuariobd,$password,$db);
+function conectarbd(){
+    $servidor = "localhost";
+    $usuariobd = "root";
+    $password = "";
+    $db = "covidbd";
 
-        if(!$conex){
-            echo "Error en la conexion". mysqli_connect_error();
-        }
-        else{
-            echo "Conexion Exitosa";
-        }
+    $conex = mysqli_connect($servidor,$usuariobd,$password,$db);
+
+    if(!$conex){
+        die("Conexion fallida ".mysqli_connect_error());
     }
-    /*
-    function conectarbd(){
-        global $conex, $dbnombre,$db;
-        $db = mysqli_select_db($conex,$dbnombre);
-    }*/
-
-    function consulta($sql){
-       global $conex,$resultado;
-     
-       $resultado = mysqli_query($conex,$sql); 
-       if ($resultado) {
-            echo "Consulta exitosa";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conex);
-        }
-    }
-
-    
-    function numfilas(){
-        global $resultado;
-        return mysqli_num_rows($resultado);
-    }
-    
-
+}
 
 ?>
